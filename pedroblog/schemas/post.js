@@ -4,16 +4,40 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'titleEn',
+      title: 'Title (English)',
       type: 'string',
     },
     {
-      name: 'slug',
-      title: 'Slug',
+      name: 'titlePt',
+      title: 'Title (Portuguese)',
+      type: 'string',
+    },
+    {
+      name: 'descriptionEn',
+      title: 'Description (English)',
+      type: 'string',
+    },
+    {
+      name: 'descriptionPt',
+      title: 'Description (Portuguese)',
+      type: 'string',
+    },
+    {
+      name: 'slugEn',
+      title: 'Slug (English)',
       type: 'slug',
       options: {
-        source: 'title',
+        source: 'titleEn',
+        maxLength: 96,
+      },
+    },
+    {
+      name: 'slugPt',
+      title: 'Slug (Portuguese)',
+      type: 'slug',
+      options: {
+        source: 'titlePt',
         maxLength: 96,
       },
     },
@@ -21,7 +45,7 @@ export default {
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: {type: 'author'},
+      to: { type: 'author' },
     },
     {
       name: 'mainImage',
@@ -32,31 +56,30 @@ export default {
       },
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-    },
-    {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
     },
     {
-      name: 'body',
-      title: 'Body',
+      name: 'bodyEn',
+      title: 'Body (English)',
+      type: 'blockContent',
+    },
+    {
+      name: 'bodyPt',
+      title: 'Body (Portuguese)',
       type: 'blockContent',
     },
   ],
 
   preview: {
     select: {
-      title: 'title',
+      title: 'titleEn',
       author: 'author.name',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
+      const { author } = selection
       return Object.assign({}, selection, {
         subtitle: author && `by ${author}`,
       })
