@@ -38,7 +38,7 @@ export default function Home({ posts }: Props) {
         {posts.map((post) => (
           <Link
             key={post._id}
-            href={`/post/${locale ? post.slugEn.current : post.slugPt.current}`}
+            href={`/post/${post.slug.current}`}
           >
             <div className="group cursor-pointer overflow-hidden rounded-lg border">
               <img
@@ -75,8 +75,7 @@ export async function getStaticProps({ locale }: any) {
   _id,
   titleEn, 
   titlePt, 
-  slugEn,
-  slugPt,
+  slug,
   descriptionEn, 
   descriptionPt,
   mainImage,

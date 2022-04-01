@@ -24,20 +24,11 @@ export default {
       type: 'string',
     },
     {
-      name: 'slugEn',
+      name: 'slug',
       title: 'Slug (English)',
       type: 'slug',
       options: {
         source: 'titleEn',
-        maxLength: 96,
-      },
-    },
-    {
-      name: 'slugPt',
-      title: 'Slug (Portuguese)',
-      type: 'slug',
-      options: {
-        source: 'titlePt',
         maxLength: 96,
       },
     },

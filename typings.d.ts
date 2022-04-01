@@ -14,10 +14,7 @@ export interface Post {
       url: string
     }
   }
-  slugEn: {
-    current: string
-  }
-  slugPt: {
+  slug: {
     current: string
   }
   bodyEn: [object]
